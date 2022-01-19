@@ -7,6 +7,33 @@
     <title>About Us</title>
   </head>
   <body>
-    <h1>This is the ABOUT page</h1>
+    <header><h1>This is the ABOUT page</h1></header>
+
+    <main>
+      <div class="container">
+        <div
+          class="row"
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 300px;
+          "
+        >
+          <label for="firstNumber">First Number</label>
+          <input type="number" name="firstNumber" id="firstNumber" />
+          <span>+</span>
+          <label for="secondNumber">Second Number</label>
+          <input type="number" name="secondNumber" id="secondNumber" />
+          <button id="makeSum">Calculate</button>
+        </div>
+        <div class="row">
+          <span id="result">0</span>
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="/dist/index.js"></script>
+    <script type="module" src="index.js"></script>
   </body>
 </html>
