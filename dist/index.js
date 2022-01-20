@@ -1,1 +1,41 @@
-function o(t,e){return t+e}var r=class{constructor(){}set=(t,e)=>{let s=e;typeof s=="object"&&(s=JSON.stringify(s)),sessionStorage.setItem(t,s)};get=t=>{let e=sessionStorage.getItem(t);return e==="null"?null:e==="undefined"?!1:e?.charAt(0)==="{"?JSON.parse(e):e};remove=t=>{sessionStorage.removeItem(t)}};var c=new r,u=document.getElementById("firstNumber"),m=document.getElementById("secondNumber"),l=document.getElementById("result"),a=document.getElementById("makeSum"),n=0;a.addEventListener("click",i);function i(){console.log(u,m,l,a),n=o(parseInt(u.value,10),parseInt(m.value,10)),l.textContent=n,c.set("sumResult",n)}
+(() => {
+  // modules/multiply.js
+  function multiply(a, b) {
+    return a * b;
+  }
+
+  // modules/sum.js
+  function sum(a, b) {
+    return a + b;
+  }
+
+  // modules/session-manager.js
+  var SessionManager = class {
+    constructor() {
+    }
+    set = (key, value) => {
+      let _value = value;
+      if (typeof _value === "object") {
+        _value = JSON.stringify(_value);
+      }
+      sessionStorage.setItem(key, _value);
+    };
+    get = (key) => {
+      const value = sessionStorage.getItem(key);
+      if (value === "null") {
+        return null;
+      }
+      if (value === "undefined") {
+        return false;
+      }
+      if (value?.charAt(0) === "{") {
+        return JSON.parse(value);
+      }
+      return value;
+    };
+    remove = (key) => {
+      sessionStorage.removeItem(key);
+    };
+  };
+})();
+//# sourceMappingURL=index.js.map

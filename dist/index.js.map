@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../modules/multiply.js", "../modules/sum.js", "../modules/session-manager.js"],
+  "sourcesContent": ["export default function multiply(a, b) {\r\n  return a * b;\r\n}\r\n", "export default function sum(a, b) {\r\n  return a + b;\r\n}\r\n", "export default class SessionManager {\r\n  constructor() {}\r\n\r\n  set = (key, value) => {\r\n    let _value = value;\r\n\r\n    if (typeof _value === \"object\") {\r\n      _value = JSON.stringify(_value);\r\n    }\r\n\r\n    sessionStorage.setItem(key, _value);\r\n  };\r\n\r\n  get = (key) => {\r\n    const value = sessionStorage.getItem(key);\r\n\r\n    if (value === \"null\") {\r\n      return null;\r\n    }\r\n\r\n    if (value === \"undefined\") {\r\n      return false;\r\n    }\r\n\r\n    if (value?.charAt(0) === \"{\") {\r\n      return JSON.parse(value);\r\n    }\r\n\r\n    return value;\r\n  };\r\n\r\n  remove = (key) => {\r\n    sessionStorage.removeItem(key);\r\n  };\r\n}\r\n"],
+  "mappings": ";;AAAe,oBAAkB,GAAG,GAAG;AACrC,WAAO,IAAI;AAAA;;;ACDE,eAAa,GAAG,GAAG;AAChC,WAAO,IAAI;AAAA;;;ACDb,6BAAoC;AAAA,IAClC,cAAc;AAAA;AAAA,IAEd,MAAM,CAAC,KAAK,UAAU;AACpB,UAAI,SAAS;AAEb,UAAI,OAAO,WAAW,UAAU;AAC9B,iBAAS,KAAK,UAAU;AAAA;AAG1B,qBAAe,QAAQ,KAAK;AAAA;AAAA,IAG9B,MAAM,CAAC,QAAQ;AACb,YAAM,QAAQ,eAAe,QAAQ;AAErC,UAAI,UAAU,QAAQ;AACpB,eAAO;AAAA;AAGT,UAAI,UAAU,aAAa;AACzB,eAAO;AAAA;AAGT,UAAI,OAAO,OAAO,OAAO,KAAK;AAC5B,eAAO,KAAK,MAAM;AAAA;AAGpB,aAAO;AAAA;AAAA,IAGT,SAAS,CAAC,QAAQ;AAChB,qBAAe,WAAW;AAAA;AAAA;",
+  "names": []
+}
